@@ -38,6 +38,6 @@ args[2]: c
 To publish to a Github Packages, like this.
 
 ```bash
-$ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+$ echo $CR_PAT | docker login ghcr.io -u $USERNAME --password-stdin
 $ ./gradlew jib
 ```
