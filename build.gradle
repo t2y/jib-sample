@@ -1,0 +1,36 @@
+plugins {
+  id 'java'
+  id 'com.google.cloud.tools.jib' version '3.2.0'
+}
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'com.google.guava:guava:23.6-jre'
+}
+
+jib {
+  from {
+    image = 'adoptopenjdk/openjdk11:alpine-jre'
+  }
+  to {
+    image = 'ghcr.io/t2y/jib-sample'
+    tags = ['mytag', 'test']
+  }
+  container {
+    labels = [
+      'org.opencontainers.image.description': 'jib sample code',
+      'org.opencontainers.image.licenses': 'Apache-2.0',
+      'org.opencontainers.image.source': 'https://github.com/t2y/jib-sample',
+      'org.opencontainers.image.title': 'jib-sample',
+      'org.opencontainers.image.url': 'https://github.com/t2y/jib-sample'
+    ]
+    format = 'OCI'
+  }
+}
+
