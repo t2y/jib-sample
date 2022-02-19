@@ -23,6 +23,16 @@ Confirm the docker image information.
 $ docker inspect ghcr.io/t2y/jib-sample
 ```
 
+## How to run
+
+```bash
+$ docker run --rm ghcr.io/t2y/jib-sample a b c
+Hello world
+args[0]: a
+args[1]: b
+args[2]: c
+```
+
 ## How to publish
 
 To publish to a Github Packages, like this.
