@@ -18,6 +18,7 @@ public class Main {
             for (var i = 0; i < args.length; i++) {
                 System.out.println(String.format("args[%d]: %s", i, args[i]));
             }
+            System.out.println("my-secret");
 
             String mySecret = System.getenv("MY_SECRET");
             System.out.println(String.format("your secret is %s", mySecret));
