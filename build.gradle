@@ -17,6 +17,12 @@ dependencies {
 jib {
   from {
     image = 'adoptopenjdk/openjdk11:alpine-jre'
+    platforms {
+      platform {
+        architecture = 'amd64'
+        os = 'linux'
+      }
+    }
   }
   to {
     image = 'ghcr.io/t2y/jib-sample'
