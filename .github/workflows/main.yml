@@ -10,9 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub context
+        run: |
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
       - name: debug
         run: |
           echo "called"
-          echo ${{ github.event }} | jq .
 
       - uses: actions/checkout@v2
