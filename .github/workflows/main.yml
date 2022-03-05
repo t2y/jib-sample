@@ -15,8 +15,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      sha: 
 
     steps:
       - name: Dump GitHub context
@@ -38,3 +36,5 @@ jobs:
       - name: debug
         run: |
           git rev-parse --short HEAD
+          git branch
+          git log -n 1
