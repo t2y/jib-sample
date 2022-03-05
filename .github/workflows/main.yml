@@ -15,6 +15,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      sha: 
+
     steps:
       - name: Dump GitHub context
         run: |
@@ -22,8 +25,16 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
-      - name: debug
+      - name: update sha
+        if: ${{ github.event.inputs != null }}
         run: |
-          echo "called"
+          echo "update sha"
+          echo "GITHUB_SHA=${{ github.event.inputs.sha }}" >> $GITHUB_ENV
 
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ env.GITHUB_SHA }}
+
+      - name: debug
+        run: |
+          git rev-parse --short HEAD
