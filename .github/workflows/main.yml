@@ -10,7 +10,8 @@ on:
       sha:
         description: 'sha'
         required: false
-        default: ''
+        default: 'default'
+        type: string
 
 jobs:
   build:
