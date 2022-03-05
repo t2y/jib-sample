@@ -2,16 +2,15 @@ name: Main build
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-  workflow_call:
     inputs:
       sha:
         description: 'sha'
         required: false
         default: 'default'
         type: string
+  push:
+    branches:
+      - main
 
 jobs:
   build:
