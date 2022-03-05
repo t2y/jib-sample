@@ -10,9 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: デバッグ
+      - name: debug
         run: |
           echo "called"
-          echo ${{ github.event }}
+          echo ${{ github.event }} | jq .
 
       - uses: actions/checkout@v2
