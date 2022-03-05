@@ -6,6 +6,11 @@ on:
     branches:
       - main
 
+inputs:
+  sha:
+    description: 'sha'
+    default: ''
+
 jobs:
   build:
     runs-on: ubuntu-latest
