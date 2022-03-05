@@ -6,14 +6,15 @@ on:
     branches:
       - main
 
+inputs:
+  sha:
+    description: 'sha'
+    required: false
+    default: ''
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    inputs:
-      sha:
-        description: 'sha'
-        required: false
-        default: ''
     steps:
       - name: Dump GitHub context
         run: |
