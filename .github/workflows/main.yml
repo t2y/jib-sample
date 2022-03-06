@@ -50,11 +50,15 @@ jobs:
 
       - name: clone dependency repository
         run: |
+          cd ../
           git clone https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/kazamori/go-sql-executor.git
+          ls -l
+          cd go-sql-executor
           ls -l
 
       - name: debug
         run: |
+          pwd
           echo ${{ env.GITHUB_SHA }} | cut -c1-8
           git rev-parse --short HEAD
           git branch
