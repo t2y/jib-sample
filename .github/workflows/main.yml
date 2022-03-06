@@ -8,6 +8,11 @@ on:
         required: false
         default: 'default'
         type: string
+      env:
+        description: 'デプロイする環境'
+        default: test
+        type: environment
+
   push:
     branches:
       - main
