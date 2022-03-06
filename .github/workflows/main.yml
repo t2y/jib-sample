@@ -12,6 +12,10 @@ on:
         description: 'デプロイする環境'
         default: test
         type: environment
+      bool-condition:
+        description: '真偽値'
+        default: true
+        type: boolean
 
   push:
     branches:
