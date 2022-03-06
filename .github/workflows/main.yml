@@ -16,6 +16,11 @@ on:
         description: '真偽値'
         default: true
         type: boolean
+      dep-sha:
+        description: '依存リポジトリのsha'
+        required: false
+        default: ''
+        type: string
 
   push:
     branches:
@@ -42,6 +47,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ env.GITHUB_SHA }}
+
+      - name: clone dependency repository
+        run: |
+          git clone https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/kazamori/go-sql-executor.git
+          ls -l
 
       - name: debug
         run: |
