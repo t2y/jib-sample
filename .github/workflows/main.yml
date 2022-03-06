@@ -40,6 +40,8 @@ jobs:
       - name: update sha
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sha != '' }}
         run: |
+          pwd
+          ls -l
           echo "update sha"
           echo "GITHUB_SHA=${{ github.event.inputs.sha }}" >> $GITHUB_ENV
           echo ${GITHUB_SHA::7}
@@ -50,16 +52,24 @@ jobs:
 
       - name: clone dependency repository
         run: |
+          pwd
+          ls -l
           cd ../
           git clone https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/kazamori/go-sql-executor.git
           ls -l
           cd go-sql-executor
           ls -l
 
-      - name: debug
+      - name: debug1
         run: |
           pwd
+          ls -l
           echo ${{ env.GITHUB_SHA }} | cut -c1-8
           git rev-parse --short HEAD
           git branch
           git log -n 1
+
+      - name: debug2
+        run: |
+          pwd
+          ls -l
