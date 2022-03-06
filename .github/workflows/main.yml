@@ -46,6 +46,11 @@ jobs:
           echo "GITHUB_SHA=${{ github.event.inputs.sha }}" >> $GITHUB_ENV
           echo ${GITHUB_SHA::7}
 
+      - name: debug1
+        run: |
+          pwd
+          ls -l
+
       - uses: actions/checkout@v2
         with:
           ref: ${{ env.GITHUB_SHA }}
@@ -60,7 +65,7 @@ jobs:
           cd go-sql-executor
           ls -l
 
-      - name: debug1
+      - name: debug2
         run: |
           pwd
           ls -l
@@ -69,7 +74,7 @@ jobs:
           git branch
           git log -n 1
 
-      - name: debug2
+      - name: debug3
         run: |
           pwd
           ls -l
