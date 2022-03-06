@@ -41,7 +41,6 @@ jobs:
 
       - name: debug
         run: |
-          echo ${{ env.GITHUB_SHA::7 }}
           echo ${{ env.GITHUB_SHA }} | cut -c1-8
           git rev-parse --short HEAD
           git branch
