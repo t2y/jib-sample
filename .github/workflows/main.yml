@@ -19,7 +19,7 @@ on:
       dep-sha:
         description: '依存リポジトリのsha'
         required: false
-        default: ''
+        default: '6e352c23797ed34142110a7be09571ab104dce2f'
         type: string
 
   push:
@@ -64,6 +64,9 @@ jobs:
           ls -l
           cd go-sql-executor
           ls -l
+          git checkout -b local ${{ github.event.inputs.dep-sha }}
+          git rev-parse --short HEAD
+          git log -n 1
 
       - name: debug2
         run: |
