@@ -6,7 +6,7 @@ on:
       sha:
         description: 'sha'
         required: false
-        default: 'default'
+        default: ''
         type: string
       env:
         description: 'デプロイする環境'
@@ -29,10 +29,11 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
       - name: update sha
-        if: ${{ github.event.inputs != null }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.sha != '' }}
         run: |
           echo "update sha"
           echo "GITHUB_SHA=${{ github.event.inputs.sha }}" >> $GITHUB_ENV
+          echo ${GITHUB_SHA::7}
 
       - uses: actions/checkout@v2
         with:
@@ -40,6 +41,8 @@ jobs:
 
       - name: debug
         run: |
+          echo ${{ env.GITHUB_SHA::7 }}
+          echo ${{ env.GITHUB_SHA }} | cut -c1-8
           git rev-parse --short HEAD
           git branch
           git log -n 1
