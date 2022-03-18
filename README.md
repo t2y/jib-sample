@@ -61,3 +61,4 @@ $ docker inspect ghcr.io/t2y/jib-sample:latest | jq '.[].Config.Labels'
   "version.jib-sample": "478304ac"
 }
 ```
+
