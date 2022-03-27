@@ -18,6 +18,14 @@ public class Main {
             for (var i = 0; i < args.length; i++) {
                 System.out.println(String.format("args[%d]: %s", i, args[i]));
             }
+
+            if (args.length == 1 && args[0].contains(" ")) {
+                var args0 = args[0].split(" ");
+                for (var i = 0; i < args0.length; i++) {
+                    System.out.println(String.format("args0[%d]: %s", i, args0[i]));
+                }
+            }
+
             System.out.println("my-secret");
 
             String mySecret = System.getenv("MY_SECRET");
