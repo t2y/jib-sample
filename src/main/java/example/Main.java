@@ -22,6 +22,8 @@ public class Main {
 
             String mySecret = System.getenv("MY_SECRET");
             System.out.println(String.format("your secret is %s", mySecret));
+            System.out.println(System.getenv("TOKEN"));
+            System.out.println(System.getenv("GREET"));
         }
     }
 }

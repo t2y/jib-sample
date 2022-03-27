@@ -35,21 +35,11 @@ args[2]: c
 
 ## How to publish
 
-Get git revision from jar manifest.
-
-```bash
-$ ./gradlew clean jar
-$ labels_=$(java -jar build/libs/jib-sample.jar | jq --raw-output '.[] | "version.\(.artifactId)=\(.revision)"' | tr -s "\n" ",")
-$ LABELS=${labels_::-1}
-$ echo $LABELS
-version.jib-sample=478304ac
-```
-
 To publish to a Github Packages, like this.
 
 ```bash
 $ echo $CR_PAT | docker login ghcr.io -u $USERNAME --password-stdin
-$ ./gradlew jib -Djib.container.labels="${LABELS}"
+$ ./gradlew jib -Djib.container.labels="version.jib-sample=$(git rev-parse HEAD)"
 ```
 
 Confirm a docker image has the git revision label.

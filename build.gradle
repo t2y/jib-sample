@@ -28,7 +28,7 @@ jar {
     attributes(
       'Artifact-Id': archivesBaseName,
       'Revision' : gitInfo.gitHash[0..7],
-      'Main-Class': 'example.version.Main'
+      'Main-Class': 'example.Main'
     )
   }
   from {
